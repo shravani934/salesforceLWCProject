@@ -1,0 +1,40 @@
+<template>
+  <lightning-card title="Investment Calculator">
+    <div class="mode-selector">
+      <lightning-button 
+  label="SIP" 
+  variant={sipButtonVariant} 
+  onclick={setSIPMode}>
+</lightning-button>
+      <lightning-button 
+  label="Lumpsum" 
+  variant={lumpsumButtonVariant} 
+  onclick={setLumpsumMode}>
+</lightning-button>
+    </div>
+
+    <div class="inputs">
+      <template if:true={sipMode}>
+        <lightning-input type="number" label="Monthly SIP Amount" value={monthly} onchange={handleChange} data-id="monthly"></lightning-input>
+      </template>
+      <template if:false={sipMode}>
+        <lightning-input type="number" label="Total Investment" value={lumpsum} onchange={handleChange} data-id="lumpsum"></lightning-input>
+      </template>
+
+      <lightning-input type="number" label="Annual Return Rate (%)" value={rate} onchange={handleChange} data-id="rate"></lightning-input>
+      <lightning-input type="number" label="Time Period (Years)" value={years} onchange={handleChange} data-id="years"></lightning-input>
+    </div>
+
+    <div class="actions">
+      <lightning-button label="Calculate" variant="brand" onclick={calculate}></lightning-button>
+    </div>
+
+    <div class="results">
+      <template if:true={showResults}>
+        <p>Total Invested: <strong>{formattedInvested}</strong></p>
+        <p>Estimated Value: <strong>{formattedFutureValue}</strong></p>
+        <p>Returns: <strong>{formattedReturns}</strong></p>
+      </template>
+    </div>
+  </lightning-card>
+</template>

@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="studentsInfo">
+<lightning-layout multiple-rows>
+<lightning-layout-item size="8">
+  <ul>
+    <template for:each={studentInfoParent} for:item="student">
+        <li key={student.age}>{student.age}
+            <c-student-info student-info={student} ontileclick={tileselectHandler}></c-student-info>
+        </li>
+        
+    </template>
+  </ul>
+               </lightning-layout-item>
+       <lightning-layout-item size="4">You Have Selected:{selectedStudentInfo}</lightning-layout-item>        
+            </lightning-layout>
+    </lightning-card>
+</template>

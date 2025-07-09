@@ -1,0 +1,56 @@
+<template>
+  <div class="register-container">
+    <div class="register-box">
+      <h1>Create Your Account</h1>
+
+      <lightning-input
+        class="register-input"
+        label="First Name"
+        onchange={handleFirstNameChange}>
+      </lightning-input>
+
+      <lightning-input
+        class="register-input"
+        label="Last Name"
+        onchange={handleLastNameChange}>
+      </lightning-input>
+
+      <lightning-input
+        class="register-input"
+        label="Email"
+        type="email"
+        onchange={handleEmailChange}>
+      </lightning-input>
+
+      <lightning-input
+        class="register-input"
+        label="Password"
+        type="password"
+        onchange={handlePasswordChange}>
+      </lightning-input>
+
+      <lightning-input
+        class="register-input"
+        label="Confirm Password"
+        type="password"
+        onchange={handleConfirmPasswordChange}>
+      </lightning-input>
+
+      <lightning-button
+        class="register-button"
+        label="Sign Up"
+        variant="brand"
+        onclick={handleRegister}>
+      </lightning-button>
+        
+
+      <div class="login-link">
+        Already have an account? <a href="/login">Log in</a>
+      </div>
+
+      <template if:true={error}>
+        <div class="error-message">{error}</div>
+      </template>
+    </div>
+  </div>
+</template>

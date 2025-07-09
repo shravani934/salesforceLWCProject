@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="rendering">
+       <lightning-button  variant="base" label="Show/Hide" title="Toggle visibility" onclick={handleClick} class="slds-m-left_x-small">
+        </lightning-button> 
+ <template if:true={displayDiv}>
+    <div><lightning-input type="checkbox"></lightning-input></div>
+   </template>
+   <lightning-card>
+     <div><lightning-input type="text" onchange={changeHandler}></lightning-input></div>
+      <template lwc:if = {isMorning}>
+         <p>Good Morning</p>
+      </template>
+      <template lwc:elseif = {isAfternoon}>
+         <p>Good Afternoon</p>
+         </template>
+      <template lwc:else >
+         <p>Good Evening</p>
+      </template>
+   </lightning-card>
+ </lightning-card>  
+</template>
+<!--{isAfternoon} it is dynamiccaly referance so we make getter function-->

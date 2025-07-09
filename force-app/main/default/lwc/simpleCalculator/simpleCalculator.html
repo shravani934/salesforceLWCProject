@@ -1,0 +1,38 @@
+<template>
+  <lightning-card title="Simple Calculator" icon-name="standard:formula">
+    <lightning-layout multiple-rows>
+      <lightning-layout-item padding="around-small" size="12">
+        <lightning-input type="number" label="firstNumber" value={firstNumber} onchange={onchangedHandler}>
+        </lightning-input>
+      </lightning-layout-item>
+
+      <lightning-layout-item padding="around-small" size="12">
+        <lightning-input type="number" label="secondNumber" value={secondNumber} onchange={onchangedHandler}> </lightning-input>
+      </lightning-layout-item>
+
+      <lightning-layout-item padding="around-small" size="12">
+        <lightning-input type="text" label="Result" value={currentResult} disabled></lightning-input>
+      </lightning-layout-item>
+
+      <lightning-layout-item padding="around-small" size="12">
+        <lightning-button-group>
+          <lightning-button variant="brand" label="Add" onclick={addHandler}></lightning-button>
+          <lightning-button variant="brand" label="Subtract" onclick={subHandler}></lightning-button>
+          <lightning-button variant="brand" label="Multiply" onclick={multiplyHandler}></lightning-button>
+          <lightning-button variant="brand" label="Divide" onclick={divideHandler}></lightning-button>
+        </lightning-button-group>
+      </lightning-layout-item>
+
+      <lightning-layout-item padding="around-small" size="12">
+        <h3>Calculation History</h3>
+        <template if:true={history}>
+          <ul>
+            <template for:each={history} for:item="item" for:index="idx">
+             <li key={item}>{item}</li>
+            </template>
+          </ul>
+        </template>
+      </lightning-layout-item>
+    </lightning-layout>
+  </lightning-card>
+</template>
